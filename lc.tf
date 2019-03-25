@@ -1,13 +1,13 @@
 # ---------------------------------------
 # Launch Config
 # ---------------------------------------
-resource "aws_launch_configuration" "bastion" {
+resource "aws_launch_configuration" "proxy" {
   name_prefix          = "terraform-proxy-lc-"
   image_id             = "${var.image_id}"
   instance_type        = "${var.instance_type}"
   key_name             = "${var.key_name}"
   iam_instance_profile = "${aws_iam_instance_profile.proxy_instance_profile.name}"
-  security_groups      = ["${var.security_groups}"]
+  security_groups      = ["${aws_security_group.ec2_sg.id}"]
   enable_monitoring    = "${var.enable_monitoring}"
   user_data            = "${data.template_file.user_data.rendered}"
 
