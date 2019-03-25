@@ -9,7 +9,7 @@ resource "aws_security_group" "ec2_sg" {
   ingress {
     from_port   = "${var.proxy_access_port}"
     to_port     = "${var.proxy_access_port}"
-    protocol    = "-1"
+    protocol    = "TCP"
     cidr_blocks = ["${var.vpc_cidr}"]
   }
 
