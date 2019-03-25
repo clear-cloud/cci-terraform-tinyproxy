@@ -1,3 +1,4 @@
+variable "aws_region" {}
 variable "vpc_id" {}
 variable "contact" {}
 variable "vpc_cidr" {
