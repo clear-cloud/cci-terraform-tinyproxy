@@ -55,6 +55,13 @@ yum install -y tinyproxy
 systemctl enable tinyproxy
 systemctl start tinyproxy
 #
+# Install region specific CodeDeploy agent
+#
+yum install -y ruby
+wget https://aws-codedeploy-${aws_region}.s3.amazonaws.com/latest/install
+chmod +x ./install
+./install auto
+#
 # Allow for additional commands
 #
 ${supplementary_user_data}
