@@ -4,6 +4,12 @@
 #
 yum install awscli -y
 #
+# Install AWSCLI
+#
+/bin/curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+python get-pip.py
+pip install awscli
+#
 # Setup DNS record update
 #
 PRIVATEIP=$(curl -s 'http://169.254.169.254/latest/meta-data/local-ipv4')
@@ -24,12 +30,6 @@ hostnamectl set-hostname ${hostname}.${dns_domain_name}
 #
 yum update -y
 #
-# Install AWSCLI 
-#
-/bin/curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
-python get-pip.py
-pip install awscli
-#
 # Setup SSM Agent
 #
 yum install amazon-ssm-agent python-deltarpm -y
@@ -42,6 +42,18 @@ echo "systemctl start amazon-ssm-agent" >> /etc/rc.local
 yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
 systemctl enable amazon-ssm-agent
 systemctl start amazon-ssm-agent
+#
+# Add EPEL
+#
+yum install -y wget 
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install -y epel-release-latest-7.noarch.rpm 
+#
+# Install tinyproxy
+#
+yum install -y tinyproxy
+systemctl enable tinyproxy
+systemctl start tinyproxy
 #
 # Allow for additional commands
 #
