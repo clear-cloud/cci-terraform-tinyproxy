@@ -67,6 +67,11 @@ wget https://aws-codedeploy-${aws_region}.s3.amazonaws.com/latest/install
 chmod +x ./install
 ./install auto
 #
+# Install Cloudwatch logs agent
+#
+curl https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py -O
+python ./awslogs-agent-setup.py --region ${aws_region}
+#
 # Allow for additional commands
 #
 ${supplementary_user_data}
