@@ -57,7 +57,7 @@ systemctl start tinyproxy
 #
 # Init to allow VPC
 #
-sed -i 's/Allow 127.0.0.1/Allow ${vpc_cidr}/g'  /etc/tinyproxy/tinyproxy.conf
+sed -i -e 's@Allow 127.0.0.1@Allow ${vpc_cidr}@g'  /etc/tinyproxy/tinyproxy.conf
 #
 # Install region specific CodeDeploy agent
 #
