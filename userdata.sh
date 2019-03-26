@@ -26,10 +26,6 @@ aws route53 change-resource-record-sets --hosted-zone-id ${hosted_zone_id} --cha
 hostname ${hostname}.${dns_domain_name}
 hostnamectl set-hostname ${hostname}.${dns_domain_name}
 #
-# Update host
-#
-yum update -y
-#
 # Setup SSM Agent
 #
 yum install amazon-ssm-agent python-deltarpm -y
@@ -69,8 +65,8 @@ chmod +x ./install
 #
 # Install Cloudwatch logs agent
 #
-curl https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py -O
-python ./awslogs-agent-setup.py --region ${aws_region}
+#curl https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py -O
+#python ./awslogs-agent-setup.py --region ${aws_region}
 #
 # Allow for additional commands
 #
