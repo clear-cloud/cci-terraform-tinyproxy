@@ -68,6 +68,7 @@ resource "aws_iam_policy" "proxy_policy" {
            "s3:ListBucketByTags",
            "s3:ListBucket",
            "s3:HeadBucket",
+           "s3:GetObject",
            "s3:ListAllMyBuckets"
        ],
        "Resource":[
