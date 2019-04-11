@@ -49,12 +49,10 @@ yum install -y epel-release-latest-7.noarch.rpm
 #
 yum install -y tinyproxy
 systemctl enable tinyproxy
-systemctl start tinyproxy
 #
 # Init to allow VPC
 #
 sed -i -e 's@Allow 127.0.0.1@Allow ${vpc_cidr}@g'  /etc/tinyproxy/tinyproxy.conf
-systemctl restart tinyproxy
 #
 # Install region specific CodeDeploy agent
 #
