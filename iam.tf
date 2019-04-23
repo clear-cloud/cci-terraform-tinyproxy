@@ -39,6 +39,14 @@ resource "aws_iam_role_policy_attachment" "proxy_attach_ec2_policy" {
   policy_arn = "${aws_iam_policy.proxy_policy.arn}"
 }
 
+# ---------------------------------
+# Attach Default SSM Policy to Role
+# ---------------------------------
+resource "aws_iam_role_policy_attachment" "proxy_attach_ec2_policy" {
+  role       = "${aws_iam_role.proxy_role.name}"
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
+}
+
 # ------------------
 # Proxy IAM Policy
 # ------------------
