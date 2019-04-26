@@ -34,7 +34,7 @@ data "template_file" "user_data" {
     dns_domain_name         = "${var.dns_domain_name}"
     hosted_zone_id          = "${var.hosted_zone_id}"
     supplementary_user_data = "${var.supplementary_user_data}"
-    aws_region              = "${var.aws_region}" 
+    aws_region              = "${var.aws_region}"
     vpc_cidr                = "${var.vpc_cidr}"
   }
 }

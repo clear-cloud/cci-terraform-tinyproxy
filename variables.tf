@@ -1,10 +1,11 @@
 variable "aws_region" {}
 variable "vpc_id" {}
 variable "contact" {}
+
 variable "vpc_cidr" {
   description = "CIDR block of the VPC which will be granted access to the Proxy"
 }
-  
+
 variable "dns_domain_name" {
   description = "DNS domain name the host will be part of. eg dev.domain.io"
 }
