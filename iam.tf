@@ -74,6 +74,7 @@ resource "aws_iam_policy" "proxy_policy" {
        "Effect": "Allow",
        "Action": [
            "cloudwatch:EnableAlarmActions",
+           "cloudwatch:DescribeAlarms",
            "cloudwatch:DisableAlarmActions"
        ],
        "Resource":[
