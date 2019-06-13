@@ -70,6 +70,17 @@ resource "aws_iam_policy" "proxy_policy" {
       ]
     },
     {
+       "Sid": "ManageAlarms",
+       "Effect": "Allow",
+       "Action": [
+           "cloudwatch:EnableAlarmActions",
+           "cloudwatch:DisableAlarmActions"
+       ],
+       "Resource":[
+          "*"
+     ]
+     },
+    {
        "Sid": "s3List",
        "Effect": "Allow",
        "Action": [
