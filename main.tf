@@ -7,7 +7,7 @@ resource "aws_autoscaling_group" "proxy" {
   min_size                  = "${var.min_size}"
   desired_capacity          = "${var.desired_capacity}"
   launch_configuration      = "${aws_launch_configuration.proxy.name}"
-  vpc_zone_identifier       = "${var.vpc_zone_identifier}"
+  vpc_zone_identifier       = ["${var.vpc_zone_identifier}"]
   health_check_grace_period = "${var.health_check_grace_period}"
   health_check_type         = "${var.health_check_type}"
 
