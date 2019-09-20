@@ -95,6 +95,16 @@ resource "aws_iam_policy" "proxy_policy" {
           "*"
      ]
      },
+    {
+       "Sid": "IAMListSSHKeys",
+       "Effect": "Allow",
+       "Action": [
+           "iam:ListSSHPublicKeys"
+       ],
+       "Resource":[
+          "*"
+     ]
+     },
      {
       "Effect": "Allow",
       "Action": [
